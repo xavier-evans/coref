@@ -1,0 +1,237 @@
+2021-06-26 23:12:23 [INFO] gpu_num = 0
+bert_model = "roberta-large"
+hidden_layer = 1024
+dropout = 0.3
+with_mention_width = true
+with_head_attention = true
+embedding_dimension = 20
+max_mention_span = 10
+mention_type = "events"
+subtopic = true
+segment_window = 512
+exact = false
+random_seed = 0
+epochs = 10
+batch_size = 16
+learning_rate = 0.0001
+weight_decay = 0
+loss = "bce"
+optimizer = "adam"
+adam_epsilon = 1e-08
+log_path = "logs/span_scorer"
+data_folder = "data/ecb/mentions"
+model_path = "models/span_scorers"
+exp_num = 0
+2021-06-26 23:12:23 [INFO] Lock 140593251417392 acquired on /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748.lock
+2021-06-26 23:12:23 [INFO] https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json not found in cache or force_download set to True, downloading to /Users/xavierevans/.cache/torch/transformers/tmpnb9m6jlb
+2021-06-26 23:12:24 [INFO] storing https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json in cache at /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-26 23:12:24 [INFO] creating metadata file for /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-26 23:12:24 [INFO] Lock 140593251417392 released on /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748.lock
+2021-06-26 23:12:24 [INFO] loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json from cache at /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-26 23:12:24 [INFO] Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bad_words_ids": null,
+  "bos_token_id": 0,
+  "decoder_start_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_id": 2,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 16,
+  "num_beams": 1,
+  "num_hidden_layers": 24,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 1,
+  "prefix": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "task_specific_params": null,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+2021-06-26 23:12:24 [INFO] Lock 140593251499792 acquired on /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b.lock
+2021-06-26 23:12:24 [INFO] https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-vocab.json not found in cache or force_download set to True, downloading to /Users/xavierevans/.cache/torch/transformers/tmpd2df4g5z
+2021-06-26 23:12:24 [INFO] storing https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-vocab.json in cache at /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
+2021-06-26 23:12:24 [INFO] creating metadata file for /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
+2021-06-26 23:12:24 [INFO] Lock 140593251499792 released on /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b.lock
+2021-06-26 23:12:24 [INFO] Lock 140593251499744 acquired on /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda.lock
+2021-06-26 23:12:24 [INFO] https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-merges.txt not found in cache or force_download set to True, downloading to /Users/xavierevans/.cache/torch/transformers/tmpf1yumgtg
+2021-06-26 23:12:25 [INFO] storing https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-merges.txt in cache at /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2021-06-26 23:12:25 [INFO] creating metadata file for /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2021-06-26 23:12:25 [INFO] Lock 140593251499744 released on /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda.lock
+2021-06-26 23:12:25 [INFO] loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-vocab.json from cache at /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
+2021-06-26 23:12:25 [INFO] loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-merges.txt from cache at /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2021-06-26 23:12:25 [INFO] Split - train
+2021-06-26 23:12:32 [INFO] Split - dev
+2021-06-26 23:12:34 [INFO] Init models
+2021-06-26 23:12:34 [INFO] loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json from cache at /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-26 23:12:34 [INFO] Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bad_words_ids": null,
+  "bos_token_id": 0,
+  "decoder_start_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_id": 2,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 16,
+  "num_beams": 1,
+  "num_hidden_layers": 24,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 1,
+  "prefix": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "task_specific_params": null,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+2021-06-26 23:12:34 [INFO] Lock 140593251594928 acquired on /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536.lock
+2021-06-26 23:12:34 [INFO] https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-pytorch_model.bin not found in cache or force_download set to True, downloading to /Users/xavierevans/.cache/torch/transformers/tmpx29apluo
+2021-06-26 23:15:20 [INFO] storing https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-pytorch_model.bin in cache at /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536
+2021-06-26 23:15:20 [INFO] creating metadata file for /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536
+2021-06-26 23:15:20 [INFO] Lock 140593251594928 released on /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536.lock
+2021-06-26 23:15:20 [INFO] loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-pytorch_model.bin from cache at /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536
+2021-06-26 23:15:34 [INFO] Number of parameters of mention extractor: 4218982
+2021-06-26 23:15:34 [INFO] Number of topics: 50
+2021-06-26 23:15:34 [INFO] Epoch: 0
+2021-06-27 01:13:07 [INFO] Accumulate loss: 366.85615606748763
+2021-06-27 01:13:07 [INFO] Evaluate on the dev set
+2021-06-27 02:04:47 [INFO] Recall: 0.7726907630522089, Precision: 0.8535936113575865, F1: 0.8111298482293424
+2021-06-27 02:04:47 [INFO] K = 0.2, Recall: 0.8899598393574297, Precision: 0.7017099430018999, F1: 0.7847025495750708
+2021-06-27 02:04:47 [INFO] K = 0.25, Recall: 0.9253012048192771, Precision: 0.5835866261398176, F1: 0.7157502329916123
+2021-06-27 02:04:47 [INFO] K = 0.3, Recall: 0.9397590361445783, Precision: 0.49408783783783783, F1: 0.6476612233600886
+2021-06-27 02:04:47 [INFO] Epoch: 1
+2021-06-27 03:59:59 [INFO] Accumulate loss: 232.9980194204468
+2021-06-27 03:59:59 [INFO] Evaluate on the dev set
+2021-06-27 04:35:00 [INFO] Recall: 0.7622489959839357, Precision: 0.8596014492753623, F1: 0.8080034057045551
+2021-06-27 04:35:00 [INFO] K = 0.2, Recall: 0.8859437751004016, Precision: 0.6985433818872704, F1: 0.7811614730878186
+2021-06-27 04:35:00 [INFO] K = 0.25, Recall: 0.9325301204819277, Precision: 0.5881458966565349, F1: 0.7213420316868593
+2021-06-27 04:35:00 [INFO] K = 0.3, Recall: 0.9502008032128514, Precision: 0.4995777027027027, F1: 0.6548574591752007
+2021-06-27 04:35:00 [INFO] Epoch: 2
+2021-06-27 06:30:13 [INFO] Accumulate loss: 177.54314362160682
+2021-06-27 06:30:13 [INFO] Evaluate on the dev set
+2021-06-27 07:05:13 [INFO] Recall: 0.7421686746987952, Precision: 0.8970873786407767, F1: 0.8123076923076923
+2021-06-27 07:05:13 [INFO] K = 0.2, Recall: 0.8803212851405623, Precision: 0.694110196326789, F1: 0.7762039660056657
+2021-06-27 07:05:13 [INFO] K = 0.25, Recall: 0.914859437751004, Precision: 0.577001013171226, F1: 0.7076731904318112
+2021-06-27 07:05:13 [INFO] K = 0.3, Recall: 0.9365461847389558, Precision: 0.49239864864864863, F1: 0.6454469969554386
+2021-06-27 07:05:13 [INFO] Epoch: 3
+2021-06-27 09:00:15 [INFO] Accumulate loss: 138.5001361763067
+2021-06-27 09:00:15 [INFO] Evaluate on the dev set
+2021-06-27 09:35:09 [INFO] Recall: 0.7911646586345381, Precision: 0.8778966131907309, F1: 0.8322771440642162
+2021-06-27 09:35:09 [INFO] K = 0.2, Recall: 0.8979919678714859, Precision: 0.708043065231159, F1: 0.7917847025495751
+2021-06-27 09:35:09 [INFO] K = 0.25, Recall: 0.9317269076305221, Precision: 0.5876393110435664, F1: 0.7207207207207207
+2021-06-27 09:35:09 [INFO] K = 0.3, Recall: 0.9493975903614458, Precision: 0.49915540540540543, F1: 0.6543039025740383
+2021-06-27 09:35:09 [INFO] Epoch: 4
+2021-06-27 11:30:02 [INFO] Accumulate loss: 112.9225663739773
+2021-06-27 11:30:02 [INFO] Evaluate on the dev set
+2021-06-27 12:04:59 [INFO] Recall: 0.8273092369477911, Precision: 0.8373983739837398, F1: 0.8323232323232322
+2021-06-27 12:04:59 [INFO] K = 0.2, Recall: 0.8947791164658635, Precision: 0.7055098163394553, F1: 0.7889518413597734
+2021-06-27 12:04:59 [INFO] K = 0.25, Recall: 0.9325301204819277, Precision: 0.5881458966565349, F1: 0.7213420316868593
+2021-06-27 12:04:59 [INFO] K = 0.3, Recall: 0.9534136546184739, Precision: 0.5012668918918919, F1: 0.6570716855798505
+2021-06-27 12:04:59 [INFO] Epoch: 5
+2021-06-27 14:00:09 [INFO] Accumulate loss: 99.17318239352971
+2021-06-27 14:00:09 [INFO] Evaluate on the dev set
+2021-06-27 14:35:10 [INFO] Recall: 0.7726907630522089, Precision: 0.8674481514878268, F1: 0.8173322005097707
+2021-06-27 14:35:10 [INFO] K = 0.2, Recall: 0.9004016064257028, Precision: 0.7099430018999366, F1: 0.7939093484419263
+2021-06-27 14:35:10 [INFO] K = 0.25, Recall: 0.9381526104417671, Precision: 0.5916919959473151, F1: 0.7256912084498292
+2021-06-27 14:35:10 [INFO] K = 0.3, Recall: 0.9606425702811245, Precision: 0.5050675675675675, F1: 0.6620536949903127
+2021-06-27 14:35:10 [INFO] Epoch: 6
+2021-06-27 16:30:45 [INFO] Accumulate loss: 76.46515013990364
+2021-06-27 16:30:45 [INFO] Evaluate on the dev set
+2021-06-27 17:05:45 [INFO] Recall: 0.7694779116465863, Precision: 0.8886827458256029, F1: 0.8247955230305638
+2021-06-27 17:05:45 [INFO] K = 0.2, Recall: 0.9116465863453815, Precision: 0.7188093730208993, F1: 0.8038243626062322
+2021-06-27 17:05:45 [INFO] K = 0.25, Recall: 0.9397590361445783, Precision: 0.5927051671732523, F1: 0.7269338303821063
+2021-06-27 17:05:45 [INFO] K = 0.3, Recall: 0.9598393574297188, Precision: 0.5046452702702703, F1: 0.6615001383891503
+2021-06-27 17:05:45 [INFO] Epoch: 7
+2021-06-27 19:00:50 [INFO] Accumulate loss: 65.44365485218891
+2021-06-27 19:00:50 [INFO] Evaluate on the dev set
+2021-06-27 19:35:54 [INFO] Recall: 0.8128514056224899, Precision: 0.8754325259515571, F1: 0.8429820907955019
+2021-06-27 19:35:54 [INFO] K = 0.2, Recall: 0.8979919678714859, Precision: 0.708043065231159, F1: 0.7917847025495751
+2021-06-27 19:35:54 [INFO] K = 0.25, Recall: 0.9236947791164659, Precision: 0.5825734549138805, F1: 0.7145076110593352
+2021-06-27 19:35:54 [INFO] K = 0.3, Recall: 0.9437751004016064, Precision: 0.49619932432432434, F1: 0.650429006365901
+2021-06-27 19:35:54 [INFO] Epoch: 8
+2021-06-27 21:32:19 [INFO] Accumulate loss: 54.211434217273464
+2021-06-27 21:32:19 [INFO] Evaluate on the dev set
+2021-06-27 22:08:11 [INFO] Recall: 0.7726907630522089, Precision: 0.8882733148661126, F1: 0.8264604810996563
+2021-06-27 22:08:11 [INFO] K = 0.2, Recall: 0.9076305220883534, Precision: 0.7156428119062698, F1: 0.80028328611898
+2021-06-27 22:08:11 [INFO] K = 0.25, Recall: 0.9373493975903614, Precision: 0.5911854103343465, F1: 0.7250698974836906
+2021-06-27 22:08:11 [INFO] K = 0.3, Recall: 0.9534136546184739, Precision: 0.5012668918918919, F1: 0.6570716855798505
+2021-06-27 22:08:11 [INFO] Epoch: 9
+2021-06-28 00:03:27 [INFO] Accumulate loss: 50.615490296295036
+2021-06-28 00:03:27 [INFO] Evaluate on the dev set
+2021-06-28 00:38:32 [INFO] Recall: 0.7566265060240964, Precision: 0.8886792452830189, F1: 0.8173535791757051
+2021-06-28 00:38:32 [INFO] K = 0.2, Recall: 0.891566265060241, Precision: 0.7029765674477517, F1: 0.7861189801699717
+2021-06-28 00:38:32 [INFO] K = 0.25, Recall: 0.9325301204819277, Precision: 0.5881458966565349, F1: 0.7213420316868593
+2021-06-28 00:38:32 [INFO] K = 0.3, Recall: 0.9526104417670683, Precision: 0.5008445945945946, F1: 0.6565181289786881
+2021-06-28 00:38:32 [INFO] Best Performance: (0.9606425702811245, 5)

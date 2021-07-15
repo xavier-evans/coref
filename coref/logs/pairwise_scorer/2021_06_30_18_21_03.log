@@ -1,0 +1,228 @@
+2021-06-30 18:21:03 [INFO] gpu_num = [
+  0
+]
+bert_model = "roberta-large"
+bert_hidden_size = 1024
+hidden_layer = 1024
+dropout = 0.3
+with_mention_width = true
+with_head_attention = true
+embedding_dimension = 20
+max_mention_span = 10
+use_gold_mentions = false
+mention_type = "events"
+top_k = 0.25
+training_method = "continue"
+subtopic = true
+use_predicted_topics = false
+segment = true
+random_seed = 0
+epochs = 10
+batch_size = 32
+learning_rate = 0.0001
+weight_decay = 0
+loss = "bce"
+optimizer = "adam"
+adam_epsilon = 1e-08
+segment_window = 512
+neg_samp = true
+exact = false
+log_path = "logs/pairwise_scorer/"
+data_folder = "data/ecb/mentions"
+span_repr_path = "models/span_scorers/events_span_repr_0"
+span_scorer_path = "models/span_scorers/events_span_scorer_0"
+model_path = "models/pairwise_scorers"
+2021-06-30 18:21:03 [INFO] Using device cpu
+2021-06-30 18:21:03 [INFO] loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json from cache at /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-30 18:21:03 [INFO] Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bad_words_ids": null,
+  "bos_token_id": 0,
+  "decoder_start_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_id": 2,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 16,
+  "num_beams": 1,
+  "num_hidden_layers": 24,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 1,
+  "prefix": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "task_specific_params": null,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+2021-06-30 18:21:04 [INFO] loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-vocab.json from cache at /Users/xavierevans/.cache/torch/transformers/1ae1f5b6e2b22b25ccc04c000bb79ca847aa226d0761536b011cf7e5868f0655.ef00af9e673c7160b4d41cfda1f48c5f4cba57d5142754525572a846a1ab1b9b
+2021-06-30 18:21:04 [INFO] loading file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-merges.txt from cache at /Users/xavierevans/.cache/torch/transformers/f8f83199a6270d582d6245dc100e99c4155de81c9745c6248077018fe01abcfb.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2021-06-30 18:21:04 [INFO] Split - train
+2021-06-30 18:21:11 [INFO] Split - dev
+2021-06-30 18:21:13 [INFO] Init models
+2021-06-30 18:21:13 [INFO] loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-config.json from cache at /Users/xavierevans/.cache/torch/transformers/c22e0b5bbb7c0cb93a87a2ae01263ae715b4c18d692b1740ce72cacaa99ad184.2d28da311092e99a05f9ee17520204614d60b0bfdb32f8a75644df7737b6a748
+2021-06-30 18:21:13 [INFO] Model config RobertaConfig {
+  "_num_labels": 2,
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bad_words_ids": null,
+  "bos_token_id": 0,
+  "decoder_start_token_id": null,
+  "do_sample": false,
+  "early_stopping": false,
+  "eos_token_id": 2,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "is_decoder": false,
+  "is_encoder_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-05,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 514,
+  "min_length": 0,
+  "model_type": "roberta",
+  "no_repeat_ngram_size": 0,
+  "num_attention_heads": 16,
+  "num_beams": 1,
+  "num_hidden_layers": 24,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 1,
+  "prefix": null,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "task_specific_params": null,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 1,
+  "use_bfloat16": false,
+  "vocab_size": 50265
+}
+
+2021-06-30 18:21:13 [INFO] loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/roberta-large-pytorch_model.bin from cache at /Users/xavierevans/.cache/torch/transformers/195c00f28dc68ef13a307c6db84d566f801f03b2b6bcf8b29524f10f767fac2a.fc7abf72755ecc4a75d0d336a93c1c63358d2334f5998ed326f3b0da380bf536
+2021-06-30 18:21:26 [INFO] Number of parameters of mention extractor: 4218982
+2021-06-30 18:21:26 [INFO] Number of parameters of the pairwise classifier: 10550273
+2021-06-30 18:21:26 [INFO] Number of topics: 50
+2021-06-30 18:21:26 [INFO] Epoch: 0
+2021-06-30 21:22:17 [INFO] Number of training pairs: 272846
+2021-06-30 21:22:17 [INFO] Accumulate loss: 1213.772175241883
+2021-06-30 21:22:17 [INFO] Evaluate on the dev set
+2021-06-30 22:01:22 [INFO] Number of predictions: 6329/135633
+2021-06-30 22:01:22 [INFO] Number of positive pairs: 5106/135633
+2021-06-30 22:01:22 [INFO] Strict - Recall: 0.5885233059146102, Precision: 0.47479854637383473, F1: 0.5255793616090949
+2021-06-30 22:01:22 [INFO] Epoch: 1
+2021-07-01 00:17:24 [INFO] Number of training pairs: 278456
+2021-07-01 00:17:24 [INFO] Accumulate loss: 493.5660319907254
+2021-07-01 00:17:24 [INFO] Evaluate on the dev set
+2021-07-01 00:55:37 [INFO] Number of predictions: 7497/135633
+2021-07-01 00:55:37 [INFO] Number of positive pairs: 5067/135633
+2021-07-01 00:55:37 [INFO] Strict - Recall: 0.5985790408525755, Precision: 0.40456182472989194, F1: 0.48280802292263614
+2021-07-01 00:55:37 [INFO] Epoch: 2
+2021-07-01 03:10:53 [INFO] Number of training pairs: 278754
+2021-07-01 03:10:53 [INFO] Accumulate loss: 414.4007796479127
+2021-07-01 03:10:53 [INFO] Evaluate on the dev set
+2021-07-01 03:49:23 [INFO] Number of predictions: 7690/135633
+2021-07-01 03:49:23 [INFO] Number of positive pairs: 4942/135633
+2021-07-01 03:49:23 [INFO] Strict - Recall: 0.6485228652367463, Precision: 0.41677503250975295, F1: 0.5074414186193794
+2021-07-01 03:49:23 [INFO] Epoch: 3
+2021-07-01 06:04:53 [INFO] Number of training pairs: 281081
+2021-07-01 06:04:53 [INFO] Accumulate loss: 355.213579534237
+2021-07-01 06:04:53 [INFO] Evaluate on the dev set
+2021-07-01 06:43:19 [INFO] Number of predictions: 5911/135633
+2021-07-01 06:43:19 [INFO] Number of positive pairs: 5067/135633
+2021-07-01 06:43:19 [INFO] Strict - Recall: 0.6153542530096704, Precision: 0.5274911182541026, F1: 0.5680451812716342
+2021-07-01 06:43:19 [INFO] Epoch: 4
+2021-07-01 08:59:00 [INFO] Number of training pairs: 280095
+2021-07-01 08:59:00 [INFO] Accumulate loss: 317.55333486051234
+2021-07-01 08:59:00 [INFO] Evaluate on the dev set
+2021-07-01 09:39:04 [INFO] Number of predictions: 6799/135633
+2021-07-01 09:39:04 [INFO] Number of positive pairs: 5007/135633
+2021-07-01 09:39:04 [INFO] Strict - Recall: 0.6397044138206511, Precision: 0.4710986909839682, F1: 0.5426054548534643
+2021-07-01 09:39:04 [INFO] Epoch: 5
+2021-07-01 11:57:52 [INFO] Number of training pairs: 280410
+2021-07-01 11:57:52 [INFO] Accumulate loss: 282.75173028143035
+2021-07-01 11:57:52 [INFO] Evaluate on the dev set
+2021-07-01 12:36:45 [INFO] Number of predictions: 5437/135633
+2021-07-01 12:36:45 [INFO] Number of positive pairs: 5075/135633
+2021-07-01 12:36:45 [INFO] Strict - Recall: 0.6466995073891626, Precision: 0.6036417141806143, F1: 0.6244292237442922
+2021-07-01 12:36:45 [INFO] Epoch: 6
+2021-07-01 14:53:06 [INFO] Number of training pairs: 280768
+2021-07-01 14:53:06 [INFO] Accumulate loss: 257.28299522949936
+2021-07-01 14:53:06 [INFO] Evaluate on the dev set
+2021-07-01 15:32:01 [INFO] Number of predictions: 7050/135633
+2021-07-01 15:32:01 [INFO] Number of positive pairs: 5105/135633
+2021-07-01 15:32:01 [INFO] Strict - Recall: 0.6407443682664055, Precision: 0.46397163120567375, F1: 0.5382147264500206
+2021-07-01 15:32:01 [INFO] Epoch: 7
+2021-07-01 17:48:45 [INFO] Number of training pairs: 281205
+2021-07-01 17:48:45 [INFO] Accumulate loss: 232.1568939504728
+2021-07-01 17:48:45 [INFO] Evaluate on the dev set
+2021-07-01 18:27:29 [INFO] Number of predictions: 6465/135633
+2021-07-01 18:27:29 [INFO] Number of positive pairs: 5018/135633
+2021-07-01 18:27:29 [INFO] Strict - Recall: 0.6658031088082902, Precision: 0.5167826759474091, F1: 0.5819036837063485
+2021-07-01 18:27:29 [INFO] Epoch: 8
+2021-07-01 20:44:24 [INFO] Number of training pairs: 281003
+2021-07-01 20:44:24 [INFO] Accumulate loss: 211.22624005892152
+2021-07-01 20:44:24 [INFO] Evaluate on the dev set
+2021-07-01 21:24:06 [INFO] Number of predictions: 6272/135633
+2021-07-01 21:24:06 [INFO] Number of positive pairs: 5180/135633
+2021-07-01 21:24:06 [INFO] Strict - Recall: 0.6521235521235521, Precision: 0.5385841836734694, F1: 0.5899406217254628
+2021-07-01 21:24:06 [INFO] Epoch: 9
+2021-07-01 23:41:25 [INFO] Number of training pairs: 280822
+2021-07-01 23:41:25 [INFO] Accumulate loss: 196.09473377742222
+2021-07-01 23:41:25 [INFO] Evaluate on the dev set
+2021-07-02 00:20:06 [INFO] Number of predictions: 5464/135633
+2021-07-02 00:20:06 [INFO] Number of positive pairs: 5086/135633
+2021-07-02 00:20:06 [INFO] Strict - Recall: 0.6500196618167519, Precision: 0.6050512445095169, F1: 0.6267298578199053

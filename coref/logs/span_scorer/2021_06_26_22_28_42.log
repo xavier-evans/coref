@@ -1,0 +1,33 @@
+2021-06-26 22:28:42 [INFO] gpu_num = 0
+bert_model = "roberta-large"
+hidden_layer = 1024
+dropout = 0.3
+with_mention_width = true
+with_head_attention = true
+embedding_dimension = 20
+max_mention_span = 10
+mention_type = "events"
+subtopic = true
+segment_window = 512
+exact = false
+random_seed = 0
+epochs = 10
+batch_size = 16
+learning_rate = 0.0001
+weight_decay = 0
+loss = "bce"
+optimizer = "adam"
+adam_epsilon = 1e-08
+log_path = "logs/span_scorer"
+data_folder = "data/ecb/mentions"
+model_path = "models/span_scorers"
+exp_num = 0
+2021-06-26 22:28:43 [INFO] Lock 140286177982016 acquired on /Users/xavierevans/.cache/huggingface/transformers/dea67b44b38d504f2523f3ddb6acb601b23d67bee52c942da336fa1283100990.94cae8b3a8dbab1d59b9d4827f7ce79e73124efa6bb970412cd503383a95f373.lock
+2021-06-26 22:28:43 [INFO] Lock 140286177982016 released on /Users/xavierevans/.cache/huggingface/transformers/dea67b44b38d504f2523f3ddb6acb601b23d67bee52c942da336fa1283100990.94cae8b3a8dbab1d59b9d4827f7ce79e73124efa6bb970412cd503383a95f373.lock
+2021-06-26 22:28:43 [INFO] Lock 140286177984176 acquired on /Users/xavierevans/.cache/huggingface/transformers/7c1ba2435b05451bc3b4da073c8dec9630b22024a65f6c41053caccf2880eb8f.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab.lock
+2021-06-26 22:28:44 [INFO] Lock 140286177984176 released on /Users/xavierevans/.cache/huggingface/transformers/7c1ba2435b05451bc3b4da073c8dec9630b22024a65f6c41053caccf2880eb8f.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab.lock
+2021-06-26 22:28:44 [INFO] Lock 140286177983024 acquired on /Users/xavierevans/.cache/huggingface/transformers/20b5a00a80e27ae9accbe25672aba42ad2d4d4cb2c4b9359b50ca8e34e107d6d.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b.lock
+2021-06-26 22:28:44 [INFO] Lock 140286177983024 released on /Users/xavierevans/.cache/huggingface/transformers/20b5a00a80e27ae9accbe25672aba42ad2d4d4cb2c4b9359b50ca8e34e107d6d.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b.lock
+2021-06-26 22:28:44 [INFO] Lock 140285308911184 acquired on /Users/xavierevans/.cache/huggingface/transformers/e16a2590deb9e6d73711d6e05bf27d832fa8c1162d807222e043ca650a556964.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730.lock
+2021-06-26 22:28:45 [INFO] Lock 140285308911184 released on /Users/xavierevans/.cache/huggingface/transformers/e16a2590deb9e6d73711d6e05bf27d832fa8c1162d807222e043ca650a556964.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730.lock
+2021-06-26 22:28:46 [INFO] Split - train
