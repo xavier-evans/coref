@@ -7,7 +7,7 @@ This script allows pip-installing CoVal as a Python module.
 
 import setuptools
 
-with open("/users/xavierevans/coref/coval/README.md", "r") as fh:
+with open("/coval/README.md", "r") as fh:
  long_description = fh.read()
 
 
